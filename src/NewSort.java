@@ -1,35 +1,28 @@
-
 public class NewSort {
-
-	static void newsort(int[] arr) {
-		int n = arr.length;
-		int temp = 0;
-		for(int i=0;i<n;i++){
-			for(int j =1;j<(n-i);j++){
-				if(arr[j-i] > arr[j]){
-					temp = arr[j-1];
-					arr[j-i] = arr[j];
-					arr[j] = temp;
-				}
-			}
-		}
-
-	}
-	public static void main(String[] args){
-		int arr[] = {8,5,23,2,4,3,2,3,2};
-		
-		System.out.println("Array Before the sort: ");
-	    for(int i = 0;i<arr.length;i++){
-	    	System.out.println(arr[i]+" ");
-	    }
-	    System.out.println();
-	    
-	    newsort(arr);
-	    
-	    System.out.println("Array after teh sort:");
-	    for(int i = 0; i< arr.length; i++){
-	    	System.out.println(arr[i]+" ");
-	    }
-	}
-
+ 
+    public static int[] doSelectionSort(int[] arr){
+         
+        for (int i = 0; i < arr.length - 1; i++)
+        {
+            int index = i;
+            for (int j = i + 1; j < arr.length; j++)
+                if (arr[j] < arr[index]) 
+                    index = j;
+      
+            int smallerNumber = arr[index];  
+            arr[index] = arr[i];
+            arr[i] = smallerNumber;
+        }
+        return arr;
+    }
+     
+    public static void main(String a[]){
+         
+        int[] arr1 = {10,34,2,56,7,67,88,42};
+        int[] arr2 = doSelectionSort(arr1);
+        for(int i:arr2){
+            System.out.print(i);
+            System.out.print(", ");
+        }
+    }
 }
